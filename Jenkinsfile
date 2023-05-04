@@ -69,8 +69,8 @@ pipeline {
                 echo "begin config bundle reload"
                 withCredentials([usernamePassword(credentialsId: 'admin-cli-token', usernameVariable: 'JENKINS_CLI_USR', passwordVariable: 'JENKINS_CLI_PSW')]) {
                   sh '''
-                    curl --user $JENKINS_CLI_USR:$JENKINS_CLI_PSW -XGET -H "Accept: application/json" http://${BUNDLE_ID}.controllers.svc.cluster.local/${BUNDLE_ID}/casc-bundle-mgnt/check-bundle-update
-                    curl --user $JENKINS_CLI_USR:$JENKINS_CLI_PSW -XPOST -H "Accept: application/json" http://${BUNDLE_ID}.controllers.svc.cluster.local/${BUNDLE_ID}/casc-bundle-mgnt/reload-bundle
+                    curl --user $JENKINS_CLI_USR:$JENKINS_CLI_PSW -XGET -H "Accept: application/json" http://${BUNDLE_ID}.cloudbees-sda.cluster.local/${BUNDLE_ID}/casc-bundle-mgnt/check-bundle-update
+                    curl --user $JENKINS_CLI_USR:$JENKINS_CLI_PSW -XPOST -H "Accept: application/json" http://${BUNDLE_ID}.cloudbees-sda.svc.cluster.local/${BUNDLE_ID}/casc-bundle-mgnt/reload-bundle
                   '''
                 }
               }
